@@ -51,8 +51,8 @@ def predict_rotation_angle(image_path, model, transform):
 image_path = '360/center_6_149.png'
 angle = image_path.split("_")[2].split(".")[0]
 
-image_path = 'xhs_captcha_imgs/center_7.png'
+image_path = 'captcha_imgs/center_7.png'
 angle = 303
 # Predict rotation angle
 predicted_angle = predict_rotation_angle(image_path, model, transform)
-print("path：", image_path,", image angle：" , angle,", Predicted Rotation Angle:", predicted_angle)
+print("路径：", image_path,", 真实角度：" , angle,", 预测角度:", predicted_angle)
