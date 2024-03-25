@@ -4,3 +4,5 @@
 
 代码里已经训练好基于pytorch预测某书的模型，模型很小但是很快很准。
 
+
+最后感谢chat gpt，代码全是chat gpt写的，要抓去抓chat gpt...
