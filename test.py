@@ -1,3 +1,6 @@
+import os
+import random
+import time
 import torch
 import torch.nn as nn
 from torchvision import transforms
@@ -47,10 +50,15 @@ def predict_rotation_angle(image_path, model, transform):
         predicted_angle = predicted.item()  # Get the predicted angle
     return predicted_angle
 
-# Path to the image you want to predict
-image_path = '360/center_8_159.png'
-angle = image_path.split("_")[2].split(".")[0]
+if __name__ == '__main__':
+    
+    for name in random.sample(os.listdir("360"), 10):
 
-# Predict rotation angle
-predicted_angle = predict_rotation_angle(image_path, model, transform)
-print("路径：", image_path,", 真实角度：" , angle,", 预测角度:", predicted_angle)
+        image_path = f'360/{name}'
+        angle = image_path.split("_")[2].split(".")[0]
+        
+        # Predict rotation angle
+        ts = time.time()
+        predicted_angle = predict_rotation_angle(image_path, model, transform)
+        print("路径：", image_path,", 真实角度：" , angle,", 预测角度:", predicted_angle, "耗时：",time.time()-ts)
+    
