@@ -1,6 +1,7 @@
 import os
 import json
 import tkinter as tk
+import tkinter.messagebox
 from PIL import Image, ImageTk
 
 class ImageRotatorApp:
@@ -122,7 +123,7 @@ class ImageRotatorApp:
         self.commit_angle()
         self.image_index += 1
         if not os.path.exists(f"{self.labels_path}/bg_{self.image_index}.png") or not os.path.exists(f"{self.labels_path}/center_{self.image_index}.png"):
-            tk.messagebox.showinfo("文件未找到或者已经标注结束")
+            tk.messagebox.showinfo("提示", "文件未找到或者已经标注结束")
             return
         
         self.master.title(f"{self.title} - {self.image_index} / {self.all_image_index}")
